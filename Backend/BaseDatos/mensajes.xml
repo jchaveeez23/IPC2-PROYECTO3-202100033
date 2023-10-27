@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListadoMensajes>
+    <Mensaje>
+        <Fecha> Guatemala, 15/01/2023 15:25 hrs. </Fecha>
+        <Texto> Bienvenido a USAC @estudiante01 @estudiante02, es un gusto que seas parte de esta institución #bienvenidaUSAC# </Texto>
+        <ListaHashtag>
+            <Hashtag>#bienvenidaUSAC#</Hashtag>
+        </ListaHashtag>
+        <ListaMencion>
+            <Mencion> @estudiante01</Mencion>
+            <Mencion> @estudiante02</Mencion>
+        </ListaMencion>
+    </Mensaje>
+    </ListadoMensajes>

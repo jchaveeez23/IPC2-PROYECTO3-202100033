@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tecnologías Chapinas, S.A.</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Tecnologías Chapinas, S.A.</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'cargar_archivo' %}">Cargar Archivo XML</a></li>
+            <li><a href="{% url 'cargar_configuracion' %}">Cargar Configuración</a></li>
+            <li><a href="{% url 'consultar' %}">Consultar</a></li>
+        </ul>
+    </nav>
+    <main>
+        <p>Bienvenido a la aplicación de Tecnologías Chapinas, S.A. Desde aquí puedes cargar archivos XML y realizar consultas.</p>
+    </main>
+</body>
+</html>
