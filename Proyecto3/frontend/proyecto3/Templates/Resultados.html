@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="w-3/5 m-auto">
+    <form action="http://127.0.0.1:8000/resultados" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="pb-4">
+            <label class="block text-xl font-medium">Reportes</label>
+        </div>
+        <div class="flex gap-4 mb-4">
+            <div>
+                <label class="block ">Fecha inicio</label>
+                <input class="focus:outline-none border border-gray-300 rounded-md p-1 text-gray-500" type="date"
+                    name="dateinicio" id="dateinicio">
+            </div>
+            <div>
+                <label class="block ">Fecha final</label>
+
+                <input class="focus:outline-none border border-gray-300 rounded-md p-1 text-gray-500" type="date"
+                    name="datefinal" id="datefinal">
+            </div>
+            <div>
+                <label class="block ">Tipo reporte</label>
+
+                <select class="focus:outline-none border border-gray-300 rounded-md py-[5px] p-1 text-gray-500"
+                    name="tiporeporte" id="tiporeporte">
+                    <option value="1">Hashtags</option>
+                    <option value="2">Menciones</option>
+                    <option value="3">Sentimientos en mensajes</option>
+                </select>
+            </div>
+            <div class="flex items-end">
+                <div>
+                    <button type="submit"
+                        class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Generar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div>
+        {% for fecha, data in content.items.items %}
+        {% if tipo == "1" or tipo == "2" %}
+        <div class="rounded-md mb-2 p-2 border border-gray-300 shadow-sm">
+            <div class="font-semibold mb-1">
+                {{fecha}}
+            </div>
+            {% for hashtag, valor in data.items.items %}
+            <div class="border rounded-md mb-2 p-1 border-gray-300">
+                <div class="flex justify-between">
+                    <div class="font-semibold">{{ hashtag }}</div>
+                    <div>{{ valor }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% elif tipo == "3" %}
+        <div class="rounded-md mb-2 p-2 border border-gray-300 shadow-sm">
+            {% for hashtag, valor in data.items %}
+            <div class="border rounded-md mb-2 p-1 border-gray-300">
+                <div class="flex justify-between">
+                    <div class="font-semibold">{{ hashtag }}</div>
+                    <div>{{ valor }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

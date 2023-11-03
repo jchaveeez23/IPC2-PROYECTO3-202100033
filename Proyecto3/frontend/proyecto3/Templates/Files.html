@@ -1,0 +1,78 @@
+<!-- Define que el documento esta bajo el estandar de HTML 5 -->
+
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="w-3/5 m-auto">
+  <form action="http://127.0.0.1:8000/cargar/configuracion" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label class="text-xl font-medium">Subir archivo de configuración</label>
+    <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 p-2">
+      <div class="space-y-1 text-center">
+        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"
+          aria-hidden="true">
+          <path
+            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="flex text-sm text-gray-600">
+          <label for="file-config"
+            class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
+            <span class="py-4 px-6 font-medium text-white">Upload a file</span>
+            <input type="file" name="file-config" id="file-config" class="form-control" placeholder="file-config"
+              required />
+          </label>
+        </div>
+        <p class="text-xs text-gray-500">XML</p>
+      </div>
+    </div>
+    <div class="text-right mt-4">
+      <button type="submit"
+        class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Subir archivo
+      </button>
+    </div>
+  </form>
+
+  <form action="http://127.0.0.1:8000/cargar/mensajes" method="post" enctype="multipart/form-data" class="mt-16">
+    {% csrf_token %}
+    <label class="block text-xl font-medium">Subir archivo de mensajes</label>
+    <div class="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 p-2">
+      <div class="space-y-1 text-center">
+        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48"
+          aria-hidden="true">
+          <path
+            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="flex text-sm text-gray-600">
+          <label for="file-consumos"
+            class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
+            <span class="py-4 px-6 font-medium text-white">Upload a file</span>
+            <input type="file" name="file-mensajes" id="file-mensajes" class="form-control" placeholder="file-consumos"
+              required />
+          </label>
+        </div>
+        <p class="text-xs text-gray-500">XML</p>
+      </div>
+    </div>
+    <div class="text-right mt-4">
+      <button type="submit"
+        class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Subir archivo
+      </button>
+    </div>
+  </form>
+
+  <form action="http://127.0.0.1:8000/data/limpiar" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label class="text-xl font-medium">Limpiar datos</label>
+    <div class="mt-4">
+      <button type="submit"
+        class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Limpiar Datos
+      </button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
